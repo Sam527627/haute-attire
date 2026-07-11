@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-ivory text-ink font-body antialiased;
+}
+
+.micro {
+  @apply text-[11px] uppercase tracking-luxe;
+}
+
+.hairline {
+  @apply h-px bg-champagne/50;
+}
+
+/* The atelier line — signature vertical gold hairline */
+.atelier-line {
+  @apply absolute top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-champagne to-transparent pointer-events-none;
+}
+
+.btn-ink {
+  @apply inline-flex items-center justify-center bg-ink text-ivory micro px-8 py-4 transition-colors hover:bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center border border-ink text-ink micro px-8 py-4 transition-colors hover:border-gold hover:text-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold;
+}
+
+input, select, textarea {
+  @apply bg-cream border border-beige px-4 py-3 text-sm outline-none focus:border-champagne w-full;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.showcase-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform;
+}
