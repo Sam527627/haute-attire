@@ -4,19 +4,14 @@ import { motion } from 'framer-motion';
 
 const SHOWCASE_ITEMS = [
   {
-    title: 'Summer Satin Edit',
-    caption: 'Soft silhouettes for warm evenings.',
-    src: '/images/products/insta2.jpg',
-  },
-  {
-    title: 'Champagne Kaftan Set',
-    caption: 'Light layers with subtle shimmer.',
+    title: 'Real Photo Edit One',
+    caption: 'Soft drape, polished movement, and elevated evening styling.',
     src: '/images/products/insta1.jpg',
   },
   {
-    title: 'Embroidered Jacket Skirt',
-    caption: 'Festive tailoring with a modern edge.',
-    src: '/images/products/insta6.jpg',
+    title: 'Real Photo Edit Two',
+    caption: 'Layered richness with a contemporary Indo-Western edge.',
+    src: '/images/products/insta2.jpg',
   },
 ];
 
@@ -32,7 +27,7 @@ export default function StudioShowcase() {
       </div>
 
       <div className="perspective-1500 flex justify-center">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {SHOWCASE_ITEMS.map((item, index) => (
             <motion.div
               key={item.title}
@@ -60,8 +55,8 @@ export default function StudioShowcase() {
         </div>
       </div>
 
-      <div className="mt-20 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {['/images/products/insta3.jpg', '/images/products/insta4.jpg', '/images/products/insta5.jpg', '/images/products/insta6.jpg', '/images/products/insta1.jpg', '/images/products/insta2.jpg'].map((src, idx) => (
+      <div className="mt-20 grid gap-4 md:grid-cols-2">
+        {['/images/products/insta3.jpg', '/images/products/insta4.jpg'].map((src, idx) => (
           <div key={idx} className="relative overflow-hidden rounded-[1.75rem] bg-beige aspect-[4/5]">
             <Image src={src} alt={`Look ${idx + 1}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 hover:scale-105" />
           </div>

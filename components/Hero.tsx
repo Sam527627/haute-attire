@@ -6,24 +6,24 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 const SLIDES = [
   {
-    img: '/images/hero-festive.svg',
+    img: '/images/catalogue/look-01.png',
     eyebrow: 'The Festive Edit 2026',
-    title: 'Dressed in light',
-    sub: 'Chikankari, organza, and champagne gold — hand-finished for the season of celebrations.',
-    href: '/collections/festive',
+    title: 'Indo-Western dressing, reimagined',
+    sub: 'Chikankari, organza, satin tailoring, and statement silhouettes for celebrations and modern city dressing.',
+    href: '/shop',
   },
   {
-    img: '/images/hero-wedding.svg',
+    img: '/images/catalogue/look-02.png',
     eyebrow: 'Wedding Collection',
     title: 'For the season of yes',
-    sub: 'Lehengas and anarkalis that move the way you do.',
+    sub: 'Lehengas, anarkalis, and refined sets that move with you from ceremony to celebration.',
     href: '/collections/wedding',
   },
   {
-    img: '/images/hero-festive.svg',
+    img: '/images/catalogue/aarohi-chikankari-kurta-set.png',
     eyebrow: 'New Arrivals',
     title: 'Everyday, elevated',
-    sub: 'Linen, silk, and ivory co-ords for the week you actually live.',
+    sub: 'Linen, silk, and ivory co-ords built for a fresh, polished wardrobe.',
     href: '/shop?new=1',
   },
 ];

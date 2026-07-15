@@ -33,7 +33,7 @@ const createSchema = z.object({
   description: z.string().min(10),
   priceInr: z.number().int().positive(), // paise
   mrpInr: z.number().int().positive().optional(),
-  images: z.array(z.string().url()).min(1),
+  images: z.array(z.string().min(1)).min(1),
   categorySlug: z.string(),
   fabric: z.string().optional(),
   tags: z.array(z.string()).default([]),

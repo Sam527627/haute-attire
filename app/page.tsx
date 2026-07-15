@@ -24,9 +24,10 @@ async function getInstagramFeed() {
 }
 
 export default async function Home() {
-  const [featured, newest, instagramProducts, collections, instagram] = await Promise.all([
+  const [featured, newest, trending, instagramProducts, collections, instagram] = await Promise.all([
     prisma.product.findMany({ where: { isFeatured: true, isActive: true }, take: 8, orderBy: { createdAt: 'desc' } }),
     prisma.product.findMany({ where: { isNew: true, isActive: true }, take: 4, orderBy: { createdAt: 'desc' } }),
+    prisma.product.findMany({ where: { isActive: true, OR: [{ tags: { has: 'indowestern' } }, { isFeatured: true }] }, take: 8, orderBy: { createdAt: 'desc' } }),
     prisma.product.findMany({ where: { tags: { has: 'instagram' }, isActive: true }, take: 6, orderBy: { createdAt: 'desc' } }),
     prisma.collection.findMany({ take: 3 }),
     getInstagramFeed(),
@@ -44,11 +45,7 @@ export default async function Home() {
           {collections.map((c, i) => (
             <Link key={c.id} href={`/collections/${c.slug}`} className="group relative aspect-[3/4] overflow-hidden bg-beige">
               <Image
-                src={[
-                  'https://images.unsplash.com/photo-1583934555852-2ac8f95f9d95?auto=format&fit=crop&w=900&q=80',
-                  'https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=80',
-                  'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=80',
-                ][i % 3]}
+                src={c.image || `/images/catalogue/look-${String((i % 9) + 1).padStart(2, '0')}.png`}
                 alt={c.name}
                 fill
                 sizes="(max-width:768px) 100vw, 33vw"
@@ -76,6 +73,20 @@ export default async function Home() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           {newest.map((p) => <ProductCard key={p.id} p={p} />)}
+        </div>
+      </section>
+
+      {/* Trending Indo-Western */}
+      <section className="mx-auto max-w-7xl px-4 py-20">
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="micro text-gold">Trending now</p>
+            <h2 className="font-display text-4xl mt-3 font-light">Indo-Western Edit</h2>
+          </div>
+          <Link href="/shop" className="micro hover:text-gold">Shop all →</Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+          {trending.map((p) => <ProductCard key={p.id} p={p} />)}
         </div>
       </section>
 
